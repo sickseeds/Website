@@ -26,6 +26,51 @@
         <button onclick="location.href='#contact'">CONTACT</button>
     </aside>
 
+    <!-- Right Side Status Panel -->
+<aside class="status-panel">
+    <div class="status-cafe-row">
+        <a href="https://status.cafe/users/sickseeds"><img src="https://status.cafe/users/sickseeds/badge.png" alt="Status Cafe Profile"/></a>
+        <div class="online-indicator" id="onlineIndicator">
+            <span class="online-dot" id="onlineDot"></span>
+            <span class="online-text" id="onlineText">checking...</span>
+        </div>
+    </div>
+
+    <div class="status-content">
+        <div class="status-item glitch-target">
+            <span class="status-label">♫ playing:</span>
+            <span class="status-value" id="playing-status">unknown track.mp3</span>
+        </div>
+
+        <div class="status-item glitch-target">
+            <span class="status-label">📖 reading:</span>
+            <span class="status-value" id="reading-status">corrupted_text.txt</span>
+        </div>
+
+        <div class="status-item glitch-target">
+            <span class="status-label">📺 watching:</span>
+            <span class="status-value" id="watching-status">NO SIGNAL</span>
+        </div>
+
+        <div class="status-item glitch-target">
+            <span class="status-label">🎮 playing game:</span>
+            <span class="status-value" id="game-status">NULL_REFERENCE_EXCEPTION</span>
+        </div>
+
+        <div class="status-divider"></div>
+
+        <div class="status-item">
+            <span class="status-label">⏰ uptime:</span>
+            <span class="status-value glitch-numbers" id="uptime-status">00:00:00</span>
+        </div>
+
+        <div class="status-item">
+            <span class="status-label">📍 location:</span>
+            <span class="status-value">undefined</span>
+        </div>
+    </div>
+</aside>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-background"></div>

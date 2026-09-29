@@ -8,6 +8,8 @@
     --accent-pink: #ffb6c1;
     --accent-maroon: #371626;
     --accent-red: #ff3366;
+    --accent-purple: #8f09eb;
+    --accent-blue: #00bfff;
     --text-main: #2a2a35;
     --text-light: #ffffff;
     --font-ui: 'MS Mincho', 'SimSun', serif;
@@ -132,6 +134,225 @@ body {
 .vn-panel button:hover {
     background: var(--accent-pink);
     color: var(--bg-dark);
+}
+
+/* ==================== STATUS PANEL (Right Side - Mirrored VN Style) ==================== */
+.status-panel {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 240px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid var(--accent-pink);
+    border-left: none;
+    z-index: 99;
+}
+
+.status-header {
+    background: var(--window-pink);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-ui);
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+.status-blink {
+    width: 8px;
+    height: 8px;
+    background: #ff3366;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    51%, 99% { opacity: 0.2; }
+}
+
+.status-cafe-row {
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 1px dashed var(--accent-pink);
+}
+
+.status-cafe-badge {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    image-rendering: pixelated;
+    border: 1px solid var(--accent-pink);
+    transition: filter 0.2s;
+}
+
+.status-cafe-badge:hover {
+    filter: hue-rotate(300deg) contrast(130%);
+}
+
+.online-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.online-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #888;
+}
+
+.online-dot.online {
+    background: #a013e4;
+    box-shadow: 0 0 6px #e398fd;
+    animation: pulse 1.5s infinite;
+}
+
+.online-dot.offline {
+    background: #912e48;
+    box-shadow: 0 0 6px #da8da0;
+}
+
+.online-text.online {
+    color: #e398fd;
+}
+
+.online-text.offline {
+    color: #912e48;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-content {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.status-item {
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.status-label {
+    color: var(--accent-pink);
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    font-family: var(--font-ui);
+}
+
+.status-value {
+    color: #aaa;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid var(--border-black);
+}
+
+.status-divider {
+    height: 1px;
+    background: var(--accent-pink);
+    margin: 1rem 0;
+}
+
+.status-footer {
+    background: var(--window-pink);
+    color: white;
+    padding: 0.3rem 1rem;
+    font-size: 0.65rem;
+    text-align: center;
+    font-family: var(--font-ui);
+}
+
+/* ==================== GLITCH EFFECTS FOR STATUS ==================== */
+.glitch-target {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-text {
+    animation: text-glitch 3s infinite;
+}
+
+@keyframes text-glitch {
+    0%, 90%, 100% {
+        color: #aaa;
+        transform: translate(0);
+    }
+    92% {
+        color: var(--accent-red);
+        transform: translate(-2px, 0);
+    }
+    94% {
+        color: var(--accent-blue);
+        transform: translate(2px, 0);
+    }
+    96% {
+        color: var(--accent-purple);
+        transform: translate(-1px, 1px);
+    }
+    98% {
+        color: #fff;
+        transform: translate(2px, -1px);
+    }
+}
+
+.glitch-numbers {
+    color: var(--accent-red);
+    font-variant-numeric: tabular-nums;
+    animation: uptime-jitter 0.1s infinite;
+}
+
+@keyframes uptime-jitter {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(1px); }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .vn-panel {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 1rem;
+        border-right: 2px solid var(--accent-pink);
+    }
+
+    .vn-panel button {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .status-panel {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 1rem auto;
+        border-left: 2px solid var(--border-black);
+    }
+
+    .character-portrait {
+        width: 200px;
+    }
 }
 
 /* ==================== HERO SECTION ==================== */
