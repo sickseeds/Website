@@ -34,7 +34,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: #1a0000;
+    background: rgba(26, 0, 0, 0.57);
     border-bottom: 1px solid var(--accent-red);
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
