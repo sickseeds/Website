@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name | Welcome to My World</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && e.key === "I") ||
+      (e.ctrlKey && e.key === "u")
+    ) {
+      e.preventDefault();
+    }
+  });
+</script>
 </head>
 <body>
-    <!-- Accessibility Reminder -->
+    <!-- Accessibility Alert -->
     <div class="accessibility-alert">
-        <img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/3v9q2nH.gif"> Flashing & Nauseating content ahead. <button onclick="this.parentElement.style.display='none'">Dismiss</button>
+        <img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/3v9q2nH.gif"> Flashing & Nauseating content ahead. <button onclick="this.parentElement.style.display='none'">Whatever</button>
     </div>
 
     <!-- Visual Effects -->
@@ -17,7 +29,7 @@
     <div class="crt-overlay"></div>
     <div class="particle-container" id="particles"></div>
 
-    <!-- Navigation Panel (VN Style) -->
+    <!-- Navigation Panel -->
     <aside class="vn-panel">
         <button onclick="location.href='#home'">◀ HOME</button>
         <button onclick="location.href='#about'">ABOUT</button>
@@ -38,35 +50,35 @@
 
     <div class="status-content">
         <div class="status-item glitch-target">
-            <span class="status-label">♫ playing:</span>
-            <span class="status-value" id="playing-status">unknown track.mp3</span>
+            <span class="status-label"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/black/149.gif"> playing:</span>
+            <span class="status-value" id="playing-status">sewerslvt - her.mp3</span>
         </div>
 
         <div class="status-item glitch-target">
-            <span class="status-label">📖 reading:</span>
-            <span class="status-value" id="reading-status">corrupted_text.txt</span>
+            <span class="status-label"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/black/358.gif"> reading:</span>
+            <span class="status-value" id="reading-status">corrupted_???.txt</span>
         </div>
 
         <div class="status-item glitch-target">
-            <span class="status-label">📺 watching:</span>
-            <span class="status-value" id="watching-status">NO SIGNAL</span>
+            <span class="status-label"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/black/575.gif"> watching:</span>
+            <span class="status-value" id="watching-status">HUMANITY</span>
         </div>
 
         <div class="status-item glitch-target">
-            <span class="status-label">🎮 playing game:</span>
+            <span class="status-label"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/black/406.gif"> playing game:</span>
             <span class="status-value" id="game-status">NULL_REFERENCE_EXCEPTION</span>
         </div>
 
         <div class="status-divider"></div>
 
         <div class="status-item">
-            <span class="status-label">⏰ uptime:</span>
+            <span class="status-label"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/black/629.gif"> uptime:</span>
             <span class="status-value glitch-numbers" id="uptime-status">00:00:00</span>
         </div>
 
         <div class="status-item">
             <span class="status-label">📍 location:</span>
-            <span class="status-value">undefined</span>
+            <span class="status-value">behind you</span>
         </div>
     </div>
 </aside>
@@ -102,6 +114,21 @@
             <span>about_???.txt</span>
         </header>
         <div class="window-body">
+            <!-- Fluxer Live Status Badge -->
+<div class="nightmare-widget">
+    <div class="widget-header">
+        <span class="widget-title">SYSTEM_STATUS.EXE</span>
+        <div class="widget-glitch-line"></div>
+    </div>
+    <div class="widget-body">
+        <div class="status-row">
+            <span class="matrix-label">NODE_ID:</span>
+            <div id="fluxer-dot" class="corrupted-dot offline"></div>
+            <span id="fluxer-text" class="glitch-text">FEED_LOST</span>
+        </div>
+        <div id="fluxer-activity" class="activity-subtext"></div>
+    </div>
+</div>
             <p>[content goes here...]</p>
         </div>
     </section>

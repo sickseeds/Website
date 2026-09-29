@@ -578,3 +578,108 @@ body {
         width: 200px;
     }
 }
+/* Corrupted Window Shell */
+.nightmare-widget {
+    background-color: var(--window-bg);
+    border: 2px solid var(--border-black);
+    box-shadow: 4px 4px 0 var(--accent-maroon);
+    padding: 2px;
+    width: 260px;
+    font-family: var(--font-ui);
+    color: var(--text-main);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Retro Window Title Bar */
+.widget-header {
+    background-color: var(--window-pink);
+    color: var(--text-light);
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-black);
+}
+
+/* Internal Box Area */
+.widget-body {
+    background-color: var(--surface);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    padding: 10px;
+    border: 1px solid var(--border-black);
+    margin-top: 2px;
+}
+
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.matrix-label {
+    color: var(--accent-pink);
+    font-size: 12px;
+}
+
+/* Uncanny Sharp Status Indicators */
+.corrupted-dot {
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--border-black);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* Glitch color shifts targeting your root variables */
+.corrupted-dot.online {
+    background-color: var(--accent-blue);
+    box-shadow: 0 0 6px var(--accent-blue);
+    animation: jitter-dot 0.5s infinite steps(2);
+}
+
+.corrupted-dot.idle {
+    background-color: var(--accent-purple);
+}
+
+.corrupted-dot.dnd {
+    background-color: var(--accent-red);
+    animation: rapid-flash 0.3s infinite;
+}
+
+.corrupted-dot.offline {
+    background-color: var(--accent-maroon);
+}
+
+/* Glitch Typography styling */
+.glitch-text {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.activity-subtext {
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--accent-pink);
+    word-break: break-all;
+    border-top: 1px dashed var(--window-pink);
+    padding-top: 4px;
+    display: none; /* Only reveals when playing something */
+}
+
+/* Uncanny Animation Frames */
+@keyframes jitter-dot {
+    0% { transform: translate(0, 0); opacity: 1; }
+    50% { transform: translate(-1px, 1px); opacity: 0.9; }
+    100% { transform: translate(1px, -1px); opacity: 1; }
+}
+
+@keyframes rapid-flash {
+    0%, 100% { opacity: 1; background-color: var(--accent-red); }
+    50% { opacity: 0.3; background-color: var(--border-black); }
+}

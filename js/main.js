@@ -80,3 +80,90 @@ setInterval(() => {
         }, 400);
     }
 }, 5000);
+// Fluxer Real-Time Status Badge
+const FLUXER_USER_ID = '1472455581679869974';
+
+function connectFluxerGateway() {
+    const dot = document.getElementById('fluxer-dot');
+    const text = document.getElementById('fluxer-text');
+    const activityBox = document.getElementById('fluxer-activity');
+
+    // Parse the token safely from the URL hash after OAuth authorization redirects back
+    const urlParams = new URLSearchParams(window.location.hash.substring(1));
+    const token = urlParams.get('access_token');
+
+    if (!token) {
+        console.warn("SYSTEM: NO_TOKEN_FOUND. Run authorization flow or add your token.");
+        dot.className = 'corrupted-dot offline';
+        text.innerText = 'NEED_AUTH';
+        return;
+    }
+
+    // Connect directly to the Fluxer live gateway stream
+    const socket = new WebSocket('wss://gateway.fluxer.app/v1');
+
+    socket.onopen = () => {
+        console.log('GATEWAY: STABLE_SIGNAL');
+
+        // Identify your session to the gateway to start listening to events
+        socket.send(JSON.stringify({
+            op: 2, // Gateway Identify Code
+            d: {
+                token: token,
+                properties: {
+                    os: 'linux',
+                    browser: 'kitty'
+                }
+            }
+        }));
+    };
+
+    socket.onmessage = (event) => {
+        try {
+            const payload = JSON.parse(event.data);
+
+            // Handle initial dispatch payload or real-time presence changes
+            if (payload.t === 'PRESENCE_UPDATE' && payload.d.user.id === FLUXER_USER_ID) {
+                const status = payload.d.status || 'offline';
+                const activity = payload.d.activities?.[0]?.name || '';
+
+                // Reset base visual tracking classes
+                dot.className = 'corrupted-dot';
+
+                if (['online', 'idle', 'dnd'].includes(status)) {
+                    dot.classList.add(status);
+                    text.innerText = status === 'dnd' ? 'DO_NOT_DISTURB' : status.toUpperCase();
+
+                    if (activity) {
+                        activityBox.innerText = `EXEC: ${activity.toUpperCase()}`;
+                        activityBox.style.display = 'block';
+                    } else {
+                        activityBox.style.display = 'none';
+                    }
+                } else {
+                    dot.classList.add('offline');
+                    text.innerText = 'NOT_HERE';
+                    activityBox.style.display = 'none';
+                }
+            }
+        } catch (err) {
+            console.error('Data stream corrupt:', err);
+        }
+    };
+
+    socket.onerror = () => {
+        dot.className = 'corrupted-dot offline';
+        text.innerText = 'SIGNAL_LOST';
+        activityBox.style.display = 'none';
+    };
+
+    socket.onclose = () => {
+        console.warn('GATEWAY: DISCONNECTED. TRYING RECONNECT IN 5S...');
+        dot.className = 'corrupted-dot offline';
+        text.innerText = 'FEED_LOST';
+        activityBox.style.display = 'none';
+        setTimeout(connectFluxerGateway, 5000);
+    };
+}
+
+document.addEventListener('DOMContentLoaded', connectFluxerGateway);
