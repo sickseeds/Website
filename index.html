@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Welcome to My World</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Accessibility Reminder -->
+    <div class="accessibility-alert">
+        ⚠️ Flashing content ahead. <button onclick="this.parentElement.style.display='none'">Dismiss</button>
+    </div>
+
+    <!-- Visual Effects -->
+    <div class="scanlines"></div>
+    <div class="crt-overlay"></div>
+    <div class="particle-container" id="particles"></div>
+
+    <!-- Navigation Panel (VN Style) -->
+    <aside class="vn-panel">
+        <button onclick="location.href='#home'">◀ HOME</button>
+        <button onclick="location.href='#about'">ABOUT</button>
+        <button onclick="location.href='#work'">WORKS</button>
+        <button onclick="location.href='#blog'">BLOG</button>
+        <button onclick="location.href='#contact'">CONTACT</button>
+    </aside>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-text="WELCOME">WELCOME</h1>
+            <p class="hero-subtitle">nothing is correct here</p>
+
+            <div class="glitch-art-container">
+                <!-- Your character/portrait image goes here -->
+                <img src="assets/me.gif" alt="Character portrait" class="character-portrait">
+            </div>
+
+            <div class="dialogue-box">
+                <div class="dialogue-name">??? ????
+</div>
+                <p class="dialogue-text">
+                    You made it through the gate...<br>
+                    Now there's no turning back.<br>
+                    <span class="text-danger">What did you expect to find?</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="content-window" id="about">
+        <header class="window-header">
+            <span class="window-icon"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/black/tumblr_6fa140fc3e8f22476c8cb82f0e1e0784_44227966_75.gif"></span>
+            <span>about_me.txt</span>
+        </header>
+        <div class="window-body">
+            <p>[Your biography/content goes here...]</p>
+        </div>
+    </section>
+
+    <!-- Work/Projects Section -->
+    <section class="content-window" id="work">
+        <header class="window-header">
+            <span class="window-icon"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/red/11cAPuy.gif"></span>
+            <span>projects_folder</span>
+        </header>
+        <div class="window-body">
+            <div class="project-grid">
+                <article class="project-card">
+                    <img src="assets/images/project1.jpg" alt="Project 1">
+                    <h3>Project Title</h3>
+                    <p>Description...</p>
+                    <a href="#" class="project-link">→ View</a>
+                </article>
+                <!-- More projects -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="content-window" id="blog">
+        <header class="window-header">
+            <span class="window-icon"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/1D2VdVh.gif"></span>
+            <span>diary.entries</span>
+        </header>
+        <div class="window-body">
+            <article class="blog-post">
+                <time datetime="2025-09-29">2025年 9月 29日</time>
+                <h3>Entry Title</h3>
+                <p>Excerpt...</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-window" id="contact">
+        <header class="window-header">
+            <span class="window-icon"><img src="https://file.garden/Zpt04KL0r1V-kQd1/_old%20web/red/S89ceBR.gif"></span>
+            <span>send_message.exe</span>
+        </header>
+        <div class="window-body">
+            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+            <div class="social-links">
+                <a href="#">twitter</a>
+                <a href="#">instagram</a>
+                <a href="#">github</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="status-bar">
+            <span>STATUS: UNKNOWN</span>
+            <span>CONNECTION: UNSTABLE</span>
+            <span id="clock">00:00:00</span>
+        </div>
+        <p>© 2025 | nothing is real</p>
+        <p><a href="landing.html">← return to gate</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

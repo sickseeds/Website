@@ -1,0 +1,226 @@
+/* ==================== VARIABLES ==================== */
+:root {
+    --bg-dark: #000000;
+    --window-bg: #c0c0c0;
+    --window-pink: #885262;
+    --border-black: #000000;
+    --accent-pink: #ffb6c1;
+    --accent-maroon: #371626;
+    --accent-red: #ff3366;
+    --text-main: #2a2a35;
+    --text-light: #ffffff;
+    --font-ui: 'MS Mincho', 'SimSun', serif;
+    --font-body: 'Courier New', monospace;
+}
+
+/* ==================== RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ==================== WARNING BANNER ==================== */
+.warning-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #1a0000;
+    border-bottom: 2px solid var(--accent-red);
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.75rem;
+    z-index: 9999;
+    color: #ffcccc;
+}
+
+/* ==================== SCANLINES ==================== */
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9990;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03) 0,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+/* ==================== PARTICLES ==================== */
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9980;
+}
+
+.particles span {
+    position: absolute;
+    font-size: 1rem;
+    opacity: 0.4;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* ==================== LANDING CONTAINER ==================== */
+.landing-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== GATE WINDOW ==================== */
+.gate-frame {
+    width: 100%;
+    max-width: 500px;
+    border: 3px double var(--border-black);
+    background: linear-gradient(135deg, #c0c0c0, #808080);
+    box-shadow:
+        inset 2px 2px 5px #ffffff,
+        inset -2px -2px 5px #404040,
+        10px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gate-header {
+    background: linear-gradient(90deg, var(--window-pink), #331927);
+    color: var(--text-light);
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-ui);
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.window-controls span {
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    margin-left: 2px;
+    background: var(--accent-pink);
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+
+.gate-content {
+    padding: 2rem;
+    color: var(--text-main);
+}
+
+/* ==================== GATE TITLE ==================== */
+.gate-title {
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--accent-red);
+    text-shadow:
+        2px 2px 0 var(--accent-pink),
+        -2px -2px 0 var(--accent-maroon);
+    animation: title-glitch 3s infinite;
+}
+
+@keyframes title-glitch {
+    0%, 90%, 100% {
+        text-shadow:
+            2px 2px 0 var(--accent-pink),
+            -2px -2px 0 var(--accent-maroon);
+        transform: translate(0);
+    }
+    92% {
+        text-shadow: -2px 2px 0 var(--accent-red);
+        transform: translate(-2px, 1px);
+    }
+    94% {
+        text-shadow: 2px -2px 0 var(--accent-maroon);
+        transform: translate(2px, -1px);
+    }
+    96% {
+        text-shadow: -2px -2px 0 var(--accent-pink);
+        transform: translate(-1px, 2px);
+    }
+}
+
+/* ==================== DISCLAIMER BOX ==================== */
+.gate-disclaimer {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-gray);
+    padding: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+    line-height: 1.6;
+    font-family: var(--font-body);
+}
+
+.gate-disclaimer strong {
+    color: var(--accent-red);
+}
+
+/* ==================== BUTTONS ==================== */
+.gate-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    border: 2px outset var(--border-gray);
+    text-decoration: none;
+    transition: all 0.1s;
+}
+
+.btn:hover {
+    border-style: inset;
+    transform: translateY(-1px);
+}
+
+.btn-exit {
+    background: #c0c0c0;
+    color: var(--text-main);
+}
+
+.btn-enter {
+    background: linear-gradient(to bottom, var(--accent-pink), var(--accent-maroon));
+    color: white;
+    font-weight: bold;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 600px) {
+    .landing-container {
+        padding: 1rem;
+    }
+
+    .gate-frame {
+        width: 95%;
+    }
+
+    .gate-actions {
+        flex-direction: column;
+    }
+}
