@@ -119,7 +119,7 @@ body {
     width: 16px;
     height: 14px;
     margin-left: 2px;
-    background: var(--accent-pink);
+    background: var(--border-black);
     border: 1px solid #000000;
     cursor: pointer;
 }
