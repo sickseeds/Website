@@ -530,11 +530,15 @@ body {
     border: 1px solid var(--accent-pink);
     margin-bottom: 1rem;
     padding: 1rem;
+    transition: transform 0.2s;
 }
 
 .blog-post time {
     color: var(--accent-pink);
     font-size: 0.85rem;
+}
+.blog-post:hover {
+    transform: translateY(-4px);
 }
 
 /* ==================== FOOTER ==================== */
