@@ -484,6 +484,20 @@ body {
     color: var(--text-main);
     line-height: 1.8;
 }
+.about-body {
+    padding: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.8;
+    overflow-y: auto;
+    height: 160px;
+}
+.cult-body {
+    padding: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.8;
+    overflow-y: auto;
+    height: 160px;
+}
 
 /* ==================== PROJECT GRID ==================== */
 .project-grid {
@@ -637,7 +651,7 @@ body {
     box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
-/* Glitch color shifts targeting your root variables */
+/* Glitch colour shifts  */
 .corrupted-dot.online {
     background-color: var(--accent-blue);
     box-shadow: 0 0 6px var(--accent-blue);
@@ -657,7 +671,7 @@ body {
     background-color: var(--accent-maroon);
 }
 
-/* Glitch Typography styling */
+/* Glitch styling */
 .glitch-text {
     font-size: 13px;
     font-weight: bold;
@@ -672,10 +686,10 @@ body {
     word-break: break-all;
     border-top: 1px dashed var(--window-pink);
     padding-top: 4px;
-    display: none; /* Only reveals when playing something */
+    display: none;
 }
 
-/* Uncanny Animation Frames */
+/* Animation Frames */
 @keyframes jitter-dot {
     0% { transform: translate(0, 0); opacity: 1; }
     50% { transform: translate(-1px, 1px); opacity: 0.9; }
