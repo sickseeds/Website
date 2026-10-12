@@ -36,6 +36,14 @@ body {
   display: flex;
     justify-content: center;
 }
+
+/* =================== BODY TEXT ========================== */
+.text-body {
+    font-family: var(--font-body);
+    color: var(--text-light);
+    font-size: 15px;
+    text-shadow: 0 0 3px pink;
+}
 /* ==================== CONTENT WINDOWS ==================== */
 .content-window {
     max-width: 800px;
