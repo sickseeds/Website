@@ -487,8 +487,8 @@ body {
     border: 1px solid var(--accent-pink);
     border-radius: 4px;
     padding: 1rem;
-    min-width: 88px;
-    min-height: 31px;
+    min-width: auto;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,8 +500,8 @@ body {
 }
 
 .project-card img {
-    width: 88%;
-    height: 31px;
+    width: auto;
+    height: auto;
     object-fit: cover;
     margin-bottom: 0.75rem;
 }
