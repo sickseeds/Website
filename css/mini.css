@@ -121,6 +121,27 @@ a:active {
     transition: transform 0.2s;
 }
 
+.project-card img {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+    display: block;
+}
+
+.project-card .text-links {
+    margin: 0.5rem 0;
+    line-height: 1.8;
+}
+
+.project-card .text-links .clique-icon {
+    height: 31px;
+    width: auto;
+    display: inline-block;
+    margin: 0 0.25rem;
+}
+
 .project-card .icon-container {
     display: flex;
     flex-direction: row;
@@ -153,15 +174,6 @@ a:active {
 
 .project-card:hover {
     transform: translateY(-4px);
-}
-
-.project-card img {
-    width: auto;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 0.75rem;
-    flex-shrink: 0;
-    display: block;
 }
 
 .project-card .text-body {
