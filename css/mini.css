@@ -44,6 +44,18 @@ body {
     font-size: 15px;
     text-shadow: 0 0 3px pink;
 }
+a:link {
+    color: #885262;
+}
+a:visited {
+    color: pink;
+}
+a:hover {
+    color: #00bfff;
+}
+a:active {
+    color: pink;
+}
 
 /* ==================== CONTENT WINDOWS ==================== */
 .content-window {

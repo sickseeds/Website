@@ -29,6 +29,18 @@ body {
     color: var(--text-light);
     overflow-x: hidden;
 }
+a:link {
+    color: #885262;
+}
+a:visited {
+    color: pink;
+}
+a:hover {
+    color: #00bfff;
+}
+a:active {
+    color: pink;
+}
 
 /* ==================== ACCESSIBILITY ALERT ==================== */
 .accessibility-alert {
