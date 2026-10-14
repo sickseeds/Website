@@ -266,3 +266,146 @@ a:active {
   95% { opacity: 0.36108; }
   100% { opacity: 0.24387; }
 }
+
+/* ===== WEBRING CAROUSEL ===== */
+.webring-carousel-wrapper {
+  position: relative;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 0 40px;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 16px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.webring-card {
+  min-width: 180px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #885262;
+  border-radius: 1px;
+  padding: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: rgb(255, 182, 193);
+  border-bottom: 1px solid #885262;
+  padding-bottom: 8px;
+    text-shadow: 0 0 3px pink;
+}
+
+.icon-small img {
+  width: 16px;
+  height: 16px;
+}
+
+.card-content {
+  text-align: center;
+  margin: 12px 0;
+    text-shadow: 0 0 3px pink;
+}
+
+.card-content img {
+  max-width: 100%;
+  max-height: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.card-content a {
+  color: rgb(255, 182, 193);
+  text-decoration: none;
+  font-size: 13px;
+  text-shadow: 0 0 3px pink;
+}
+
+.card-content a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.card-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #885262;
+}
+
+.card-controls a {
+  font-size: 11px;
+  color: rgb(255, 182, 193);
+  text-decoration: none;
+  text-shadow: 0 0 3px pink;
+}
+
+.card-controls a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #885262;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 150%;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+  transition: background 0.2s;
+  text-shadow: 0 0 3px pink;
+}
+
+.carousel-nav:hover {
+  background: #885262;
+}
+
+.carousel-nav-left { left: 0; }
+.carousel-nav-right { right: 0; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #885262;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-dot.active {
+  background: #885262;
+}

@@ -1,0 +1,21 @@
+/* ==================== VARIABLES ==================== */
+:root {
+    --bg-dark: #0a0a0f;
+    --surface: #1a1a1f;
+    --window-bg: #c0c0c0;
+    --window-pink: #885262;
+    --border-black: #000000;
+    --accent-pink: #ffb6c1;
+    --accent-maroon: #371626;
+    --accent-red: #ff3366;
+    --accent-purple: #8f09eb;
+    --accent-blue: #00bfff;
+    --text-main: #2a2a35;
+    --text-light: #ffffff;
+    --font-ui: 'MS Mincho', 'SimSun', serif;
+    --font-body: 'Courier New', monospace;
+}
+    body {
+  background-image: url('/images/pink297.jpg');
+  background-repeat: repeat;
+}
