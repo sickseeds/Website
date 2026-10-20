@@ -163,6 +163,40 @@
         <p><a style="color: rgb(255, 182, 193);" href="/main.html">← return</a></p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+    // ===== WEBRING CAROUSEL CONTROLS =====
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('webringTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  
+  if (!track || !prevBtn || !nextBtn) {
+    console.error('Carousel elements not found. Check your IDs.');
+    return;
+  }
+  
+  // Get actual card width dynamically
+  const getCardWidth = () => {
+    const firstCard = track.querySelector('.webring-card');
+    if (!firstCard) return 180;
+    return firstCard.offsetWidth + 16; // width + gap
+  };
+  
+  prevBtn.addEventListener('click', () => {
+    const width = getCardWidth();
+    track.scrollLeft -= width;
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    const width = getCardWidth();
+    track.scrollLeft += width;
+  });
+  
+  // Also allow direct scrolling on track
+  track.style.cursor = 'grab';
+  
+  console.log('Carousel initialized successfully');
+});  
+  </script>
   </body>
 </html>

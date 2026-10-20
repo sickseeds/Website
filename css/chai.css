@@ -19,3 +19,7 @@
   background-image: url('/images/pink297.jpg');
   background-repeat: repeat;
 }
+.candle {
+    position: absolute;
+    margin-left: 120px;
+}
