@@ -90,6 +90,14 @@ a:active {
         transform: translateY(-30px) rotate(180deg);
     }
 }
+.clickme {
+    position: absolute;
+    left: 670px;
+    top: 180px;
+    right: 20px;
+    filter: hue-rotate(70deg);
+    border: 2px solid var(--accent-pink);
+}
 
 /* ==================== VN PANEL ==================== */
 .vn-panel {

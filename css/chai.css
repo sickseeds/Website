@@ -14,12 +14,35 @@
     --text-light: #ffffff;
     --font-ui: 'MS Mincho', 'SimSun', serif;
     --font-body: 'Courier New', monospace;
+* {
+    margin: 0;
+    padding: 0;
+    }
 }
     body {
   background-image: url('/images/pink297.jpg');
   background-repeat: repeat;
 }
-.candle {
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+img {
+    width: 150px;
+    height: 190px;
+#candle {
     position: absolute;
-    margin-left: 120px;
+    left: 0;
+}
+#chai {
+   position: absolute;
+}
+#candle-2 {
+    position: absolute;
+    right: 0%;
+    }
 }
