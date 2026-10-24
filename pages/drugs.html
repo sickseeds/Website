@@ -1,12 +1,121 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="icon" type="image/x-icon" href="/assets/18a7dfef.gif">
+    <link rel="stylesheet" href="/css/drugs.css">
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <!-- SVG FILTERS -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="warp" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.011" num0ctaves="3" seed="17" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="190" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      </defs>
+    </svg>
+    <!-- LIQUID BG -->
+    <div class="bg" aria-hidden="true">
+    <div class="blob blob--core"></div>
+    <div class="blob blob--drip"></div>
+    <div class="blob blob--pool"></div>
+    <div class="blob blob--acid"></div>
+    </div>
+    <!-- TEXTURES -->
+    <div class="fx fx--halftone" aria-hidden="true"></div>
+    <div class="fx fx--grain" aria-hidden="true"></div>
+    <div class="fx fx--scan" aria-hidden="true"></div>
+    <div class="fx fx--chroma" aria-hidden="true"></div>
+    <div class="fx fx--vignette" aria-hidden="true"></div>
+
+    <div class="sliver a" aria-hidden="true"></div>
+    <div class="sliver b" aria-hidden="true"></div>
+    <div class="sliver c" aria-hidden="true"></div>
+    <!-- MAIN CONTENT -->
+    <div class="wrap">
+    <div class="topbar">
+      <span><span class="dot"></span>&nbsp; transmission live feed</span>
+      <span>vol. ???</span>
+      </div>
+
+      <header class="hero">
+      <p class="kicker">weed</p>
+        <h1>
+        <span class="aber" data-text="Liquid">Liquid</span>
+          <span class="aber" data-text="Mind">Mind</span>
+        </h1>
+        <p class="hero-sub">
+        Notes on strains, altered headspaces, and whatever surfaces during a trip. <em>Everything here is subjective.</em> Nothing here is medical advice.
+        </p>
+      </header>
+      <!-- WARNING -->
+
+      <!-- INTENSITY OR CALM | CONTROLS -->
+      <div class="controls">
+      <button class="btn" id="intensify" aria-pressed="false">◉ intensify</button>
+        <button class="btn" id="calm" aria-pressed="false">◌ calm down</button>
+      </div>
+
+      <!-- POSTS -->
+      <div class="rule"></div>
+      <main class="feed">
+      <article class="post">
+        <span class="tag">tags</span>
+        <h2>post title</h2>
+        <p class="meta">23 oct 2026 · 21:40 · solo session</p>
+        <div class="strip" aria-hidden="true"><i><i><i></i></i></i></div>
+        <p>
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis rutrum elit, nec posuere ex. Donec scelerisque tortor lorem, id vestibulum dui tincidunt sit amet. Etiam euismod metus at vulputate congue. Nam dictum fringilla diam, eget congue erat. Nulla vestibulum erat tortor, et pellentesque nunc pharetra eu. Suspendisse id risus ut lectus tristique dapibus sed rhoncus lorem. Fusce sollicitudin diam in erat vulputate suscipit. Aliquam eu felis in mauris dapibus lobortis luctus eu nisl.
+        </p>
+        </article>
+      </main>
+      <!-- FOOTER -->
+      <footer>
+      <b>liquid smooth</b> - opinions are mine, not medical advice<br>
+        consume responsibly - check on your friends<br>
+        © 2026 ·
+      </footer>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+  // Intensity controls
+  const root = document.documentElement;
+  const btnHot = document.getElementById('intensity');
+  const btnCalm = document.getElementById('calm');
+
+  function setSpeed(v){
+    root.style.setProperty('--speed', v);
+    btnHot.setAttribute('aria-pressed', v === 2 ? 'true' : 'false');
+    btnCalm.setAttribute('aria-pressed', v === 0.35 ? 'true' : 'false');
+  }
+
+  btnHot.addEventListener('click', () => {
+    setSpeed(root.style.getPropertyValue('--speed').trim() === '2' ? '1' : '2');
+  });
+  btnCalm.addEventListener('click', () => {
+    setSpeed(root.style.getPropertyValue('--speed').trim() === '0.35' ? '1' : '0.35');
+  });
+
+  const bg = document.querySelector('.bg');
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+
+  window.addEventListener('pointermove', (e) => {
+    tx = (e.clientX / window.innerWidth - 0.5) * 34;
+    ty = (e.clientY / window.innerHeight - 0.5) * 34;
+  }, { passive: true });
+
+  (function loop(){
+    cx += (tx - cx) * 0.045;
+    cy += (ty - cy) * 0.045;
+    bg.style.transform = `translate3d(${cx.toFixed(2)}px, ${cy.toFixed(2)}px, 0)`;
+    requestAnimationFrame(loop);
+  })();
+</script>
   </body>
 </html>
